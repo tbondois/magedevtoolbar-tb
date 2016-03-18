@@ -1,9 +1,9 @@
 
-## Quick 
+# Magento 1.x dev toolbar + FirePHP
 
-It's a fork of [magneto-debug](https://github.com/madalinoprea/magneto-debug) + inclusion of FirePHP for your magento 1.x project.
+## Quick Changes :
 
-### Changes :
+* The magento debug toolbar is a fork of [magneto-debug](https://github.com/madalinoprea/magneto-debug) + inclusion of FirePHP for your magento 1.x project.
 
 * no need of installation via modman. Just copy/paste files to your magento root path
 
@@ -16,10 +16,11 @@ It's a fork of [magneto-debug](https://github.com/madalinoprea/magneto-debug) + 
 
 ## Quick install guide :
 
+
+* copy files/folders from your project root
+
 * Add to your .gitignore these lines:
 
-
-* copy files/folder from your project root
 `
 /app/code/community/Sheep/Debug/
 /app/etc/modules/Sheep_Debug.xml
@@ -29,8 +30,10 @@ It's a fork of [magneto-debug](https://github.com/madalinoprea/magneto-debug) + 
 /app/design/adminhtml/default/default/layout/sheep_debug.xml
 /app/design/adminhtml/default/default/template/sheep_debug/
 /skin/adminhtml/default/default/sheep_debug/
+
 /vendor/firephp/
 `
+
 
 #### Debug toolbar
 
