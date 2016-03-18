@@ -33,7 +33,6 @@
 /vendor/firephp/
 `
 
-
 #### Debug toolbar
 
 With magerun :
@@ -63,7 +62,8 @@ Add in the end of your `/index.php` :
 delete / comment content in `/app/etc/modules/Sheep_Debug.xml`
 
 
-# Original Magnero/debug README :
+
+# Original Magneto/debug README :
 
 
 [![Build Status](https://travis-ci.org/madalinoprea/magneto-debug.svg?branch=master)](https://travis-ci.org/madalinoprea/magneto-debug) [![Coveralls](https://coveralls.io/repos/github/madalinoprea/magneto-debug/badge.svg?branch=master)](https://coveralls.io/github/madalinoprea/magneto-debug)
