@@ -19,9 +19,9 @@
 ## Quick install guide :
 
 
-* [Download zip](https://github.com/tbondois/magento1devkit/archive/master.zip)  from [my GitHub project](https://github.com/tbondois/magento1devkit) and extract copy files/folders in your project root
+* [Download zip](https://github.com/tbondois/magento1devkit/archive/master.zip) from [my GitHub project](https://github.com/tbondois/magento1devkit) and extract copy files/folders in your project root
 
-* Add to your .gitignore these lines:
+* Add to your .gitignore these lines :
 
 `
 .editorconfig
@@ -38,7 +38,7 @@
 
 #### Debug toolbar
 
-With magerun :
+With [Magerun tool](https://github.com/netz98/n98-magerun) installed on your server :
 
 * `magerun cache:clean`
 
