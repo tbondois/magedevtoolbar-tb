@@ -160,7 +160,9 @@ class Sheep_Debug_Model_Observer
             return;
         }
 
-        $this->getRequestInfo()->save();
+        //@fixes db insert in sheep_debug_report_info only if sql profiler enabled, because responses can be too big
+        if (Mage::helper('sheep_debug')->getSqlProfiler()->getEnabled())
+			$this->getRequestInfo()->save();
     }
 
     /**
@@ -214,6 +216,8 @@ class Sheep_Debug_Model_Observer
                 continue;
             }
 
+			// @fixes The module make a page crashing ? uncomment the line below and ad the last block class displayed in the 'continue' test
+            //var_dump(__METHOD__, get_class($block));
             $requestInfo->addBlock($block);
         }
 

@@ -1,20 +1,67 @@
-Quick Fork of [magneto-debug](https://github.com/madalinoprea/magneto-debug)
+
+## Quick 
+
+It's a fork of [magneto-debug](https://github.com/madalinoprea/magneto-debug) + inclusion of FirePHP for your magento 1.x project.
+
+### Changes :
+
+* no need of installation via modman. Just copy/paste files to your magento root path
+
+* Insert in database table `sheep_debug_report_info` only Sql Profiler is enabled
+
+* no header menu
+
+* Look for `@fixes` to see all my changes
+
 
 ## Quick install guide :
 
-
-* copy files/folder from your project root
-
 * Add to your .gitignore these lines:
 
-/app/etc/modules/Sheep_Debug.xml
+
+* copy files/folder from your project root
+`
 /app/code/community/Sheep/Debug/
-sheep_debug.xml
-sheep_debug/
+/app/etc/modules/Sheep_Debug.xml
+/app/design/frontend/base/default/layout/sheep_debug.xml
+/app/design/frontend/base/default/template/sheep_debug/
+/skin/frontend/base/default/sheep_debug/
+/app/design/adminhtml/default/default/layout/sheep_debug.xml
+/app/design/adminhtml/default/default/template/sheep_debug/
+/skin/adminhtml/default/default/sheep_debug/
+/vendor/firephp/
+`
 
-* magerun cache:clean
+#### Debug toolbar
 
-* magerun sys:setup:run
+With magerun :
+
+* `magerun cache:clean`
+
+* `magerun sys:setup:run`
+
+#### Firephp lib
+
+* Use Firefox and plugins Firebug + FirePHP
+
+* Inclusion of library for DeveloperMode
+
+Add in the end of your `/index.php` :
+
+
+	if (Mage::getIsDeveloperMode()) {
+		include_once __DIR__ .'/vendor/firephp/firephp-core/lib/FirePHPCore/fssb.php';
+	} elseif (!function_exists('fb')) {
+		function fb() {};
+	}
+
+
+## Quick disable guide
+
+delete / comment content in `/app/etc/modules/Sheep_Debug.xml`
+
+
+# Original Magnero/debug README :
 
 
 [![Build Status](https://travis-ci.org/madalinoprea/magneto-debug.svg?branch=master)](https://travis-ci.org/madalinoprea/magneto-debug) [![Coveralls](https://coveralls.io/repos/github/madalinoprea/magneto-debug/badge.svg?branch=master)](https://coveralls.io/github/madalinoprea/magneto-debug)
