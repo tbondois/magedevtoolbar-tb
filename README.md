@@ -3,7 +3,9 @@
 
 ## Quick Changes :
 
-* The magento debug toolbar is a fork of [magneto-debug](https://github.com/madalinoprea/magneto-debug) + inclusion of FirePHP for your magento 1.x project.
+* The magento debug toolbar is a fork of [magneto-debug](https://github.com/madalinoprea/magneto-debug) 
+
+* The FirePHP lib is a fork of [FirePHPCore](https://github.com/firephp/firephp-core) to dump PHP via fb() method and see them in the Firebug console
 
 * no need of installation via modman. Just copy/paste files to your magento root path
 
