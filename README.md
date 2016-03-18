@@ -23,12 +23,19 @@
 
 `
 /app/code/community/Sheep/Debug/
+
 /app/etc/modules/Sheep_Debug.xml
+
 /app/design/frontend/base/default/layout/sheep_debug.xml
+
 /app/design/frontend/base/default/template/sheep_debug/
+
 /skin/frontend/base/default/sheep_debug/
+
 /app/design/adminhtml/default/default/layout/sheep_debug.xml
+
 /app/design/adminhtml/default/default/template/sheep_debug/
+
 /skin/adminhtml/default/default/sheep_debug/
 
 /vendor/firephp/
