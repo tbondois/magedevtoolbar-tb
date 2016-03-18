@@ -19,7 +19,7 @@
 ## Quick install guide :
 
 
-* copy files/folders from your project root
+* [Download zip](https://github.com/tbondois/magento1devkit/archive/master.zip)  from [my GitHub project](https://github.com/tbondois/magento1devkit) and extract copy files/folders in your project root
 
 * Add to your .gitignore these lines:
 
