@@ -30,7 +30,7 @@
 /app/design/adminhtml/default/default/layout/sheep_debug.xml
 /app/design/adminhtml/default/default/template/sheep_debug/
 /skin/adminhtml/default/default/sheep_debug/
-/vendor/firephp/
+/dev/firephp/
 `
 
 #### Debug toolbar
@@ -51,7 +51,7 @@ Add in the end of your `/index.php` :
 
 
 	if (Mage::getIsDeveloperMode()) {
-		include_once __DIR__ .'/vendor/firephp/firephp-core/lib/FirePHPCore/fssb.php';
+		include_once __DIR__ .'/dev/firephp/firephp-core/lib/FirePHPCore/fb.php';
 	} elseif (!function_exists('fb')) {
 		function fb() {};
 	}
