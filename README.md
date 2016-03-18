@@ -24,6 +24,7 @@
 * Add to your .gitignore these lines:
 
 `
+.editorconfig
 /app/code/community/Sheep/Debug/
 /app/etc/modules/Sheep_Debug.xml
 /app/design/frontend/base/default/layout/sheep_debug.xml
