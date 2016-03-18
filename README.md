@@ -55,13 +55,13 @@ Add in the end of your `/index.php` :
 	if (Mage::getIsDeveloperMode()) {
 		include_once __DIR__ .'/dev/firephp/firephp-core/lib/FirePHPCore/fb.php';
 	} elseif (!function_exists('fb')) {
-		function fb() {};
+		function fb() {return false;};
 	}
 
 
 ## Quick disable guide
 
-delete / comment content in `/app/etc/modules/Sheep_Debug.xml`
+Delete / comment content in `/app/etc/modules/Sheep_Debug.xml`
 
 
 
