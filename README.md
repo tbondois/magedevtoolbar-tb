@@ -21,20 +21,12 @@
 
 * [Download zip](https://github.com/tbondois/magento1devkit/archive/master.zip) from [my GitHub project](https://github.com/tbondois/magento1devkit) and extract copy files/folders in your project root
 
-* Add to your .gitignore these lines :
+* Suggestion : enrich your .gitignore by typing theses commands form your project root path. It will git-ignore FirePHP and the debug toolbar.
 
-`
-.editorconfig
-/app/code/community/Sheep/Debug/
-/app/etc/modules/Sheep_Debug.xml
-/app/design/frontend/base/default/layout/sheep_debug.xml
-/app/design/frontend/base/default/template/sheep_debug/
-/skin/frontend/base/default/sheep_debug/
-/app/design/adminhtml/default/default/layout/sheep_debug.xml
-/app/design/adminhtml/default/default/template/sheep_debug/
-/skin/adminhtml/default/default/sheep_debug/
-/dev/firephp/
-`
+`php -r "readfile('https://raw.githubusercontent.com/tbondois/gitignore/master/php.gitignore');">>.gitignore`
+
+`php -r "readfile('https://raw.githubusercontent.com/tbondois/gitignore/master/magento1.gitignore');">>.gitignore`
+
 
 #### Debug toolbar
 
