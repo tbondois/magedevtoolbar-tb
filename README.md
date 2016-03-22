@@ -22,7 +22,6 @@
 
 * Extract and copy inner files/folders in your project root (overwrite if asked)
 
-
 * If you don't want/need to version these debug modules ? Enrich your .gitignore by typing theses commands form your project root path. It will git-ignore FirePHP and the debug toolbar.
 
 `php -r "readfile('https://raw.githubusercontent.com/tbondois/gitignore/master/php.gitignore');">>.gitignore`
@@ -30,7 +29,7 @@
 `php -r "readfile('https://raw.githubusercontent.com/tbondois/gitignore/master/magento1.gitignore');">>.gitignore`
 
 
-#### Debug toolbar install steps :
+#### Debug toolbar specific install steps :
 
 With [Magerun tool](https://github.com/netz98/n98-magreporerun) installed on your server :
 
@@ -41,7 +40,7 @@ With [Magerun tool](https://github.com/netz98/n98-magreporerun) installed on you
 * to enable report storage  in the the `sheep_debug_report_info` database table, enable it with a GET parameter `?dbdebug=1` 
 (ie : `/index.php?dbdebug=1`. It will keep being activated until the session is gone or a `?dbdebug=0` parameter in GET
 
-#### Firephp install steps :
+#### Firephp specific install steps :
 
 * Inclusion of firePHP for DeveloperMode : add in the end of your `/index.php`, juste before the `Mage::run(` instruction :
 
