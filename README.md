@@ -3,13 +3,13 @@
 
 ## Quick Changes :
 
-* The magento debug toolbar is a fork of [magneto-debug](https://github.com/madalinoprea/magneto-debug) 
+* The magento debug toolbar is a fork of [madalinoprea/magneto-debug](https://github.com/madalinoprea/magneto-debug) 
 
 * The FirePHP lib is a fork of [FirePHPCore](https://github.com/firephp/firephp-core) to dump PHP via fb() method and see them in the Firebug console
 
 * no need of installation via modman. Just copy/paste files to your magento root path
 
-* Insert in database table `sheep_debug_report_info` only Sql Profiler is enabled
+* Insert in database table `sheep_debug_report_info` only if ?dbdebug=1 (see more information below)
 
 * no header menu
 
@@ -30,11 +30,14 @@
 
 #### Debug toolbar
 
-With [Magerun tool](https://github.com/netz98/n98-magerun) installed on your server :
+With [Magerun tool](https://github.com/netz98/n98-magreporerun) installed on your server :
 
 * `magerun cache:clean`
 
-* `magerun sys:setup:run`
+* `magerun sys:setup:run` to create the `sheep_debug_report_info` database table
+
+* to enable report storage  in the the `sheep_debug_report_info` database table, enable it with a GET parameter `?dbdebug=1` 
+(ie : `/index.php?dbdebug=1`. It will keep being activated until the session is gone or a `?dbdebug=0` parameter in GET
 
 #### Firephp lib
 
@@ -42,7 +45,7 @@ With [Magerun tool](https://github.com/netz98/n98-magerun) installed on your ser
 
 * Inclusion of library for DeveloperMode
 
-Add in the end of your `/index.php` :
+Add in the end of your `/index.php`, juste before the `Mage::run(` instruction :
 
 
 	if (Mage::getIsDeveloperMode()) {

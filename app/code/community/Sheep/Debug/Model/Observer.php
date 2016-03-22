@@ -160,9 +160,17 @@ class Sheep_Debug_Model_Observer
             return;
         }
 
-        //@fixes db insert in sheep_debug_report_info only if sql profiler enabled, because responses can be too big
-        if (Mage::helper('sheep_debug')->getSqlProfiler()->getEnabled())
-			$this->getRequestInfo()->save();
+        //@fixes no db insert automatically because response can be too big
+        if (isset($_GET['dbdebug'])){
+            if ($_GET['dbdebug'] == 1) {
+                $_SESSION['dbdebug'] = 1;
+            } else {
+                unset($_SESSION['dbdebug']);
+            }
+        }
+        if (isset($_SESSION['dbdebug'])) {
+            $this->getRequestInfo()->save();
+        }
     }
 
     /**
@@ -216,8 +224,9 @@ class Sheep_Debug_Model_Observer
                 continue;
             }
 
-			// @fixes The module make a page crashing ? uncomment the line below and ad the last block class displayed in the 'continue' test
-            //var_dump(__METHOD__, get_class($block));
+			// @fixes The module make a page crashing ? uncomment the var_dump() below and add the last displayed class at L223, 
+            //      ie : if (!$this->canCaptureBlock($block) || get_class($block) === 'Mage_Wishlist_Block_Customer_Wishlist_Item_Options')
+            //var_dump('***crash test in '.__METHOD__, get_class($block));
             $requestInfo->addBlock($block);
         }
 
