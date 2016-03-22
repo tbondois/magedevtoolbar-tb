@@ -11,7 +11,7 @@
 
 * Insert in database table `sheep_debug_report_info` only if ?dbdebug=1 (see more information below)
 
-* no header menu
+* the dev toolbar now don't display a useless header
 
 * Look for `@fixes` to see all my changes
 
@@ -58,7 +58,6 @@ Add in the end of your `/index.php`, juste before the `Mage::run(` instruction :
 ## Quick disable guide
 
 Delete / comment content in `/app/etc/modules/Sheep_Debug.xml`
-
 
 
 # Original Magneto/debug README :
