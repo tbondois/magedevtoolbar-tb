@@ -18,18 +18,10 @@
 
 ## Quick install guide :
 
-
 * [Download zip](https://github.com/tbondois/magento1devkit/archive/master.zip) from [my GitHub project](https://github.com/tbondois/magento1devkit) 
 
 * Extract and copy inner files/folders in your project root (overwrite if asked)
 
-* Inclusion of firePHP for DeveloperMode : add in the end of your `/index.php`, juste before the `Mage::run(` instruction :
-
-	if (Mage::getIsDeveloperMode()) {
-		include_once __DIR__ .'/dev/firephp/firephp-core/lib/FirePHPCore/fb.php';
-	} elseif (!function_exists('fb')) {
-		function fb() {return false;};
-	}
 
 * If you don't want/need to version these debug modules ? Enrich your .gitignore by typing theses commands form your project root path. It will git-ignore FirePHP and the debug toolbar.
 
@@ -38,7 +30,7 @@
 `php -r "readfile('https://raw.githubusercontent.com/tbondois/gitignore/master/magento1.gitignore');">>.gitignore`
 
 
-#### Debug toolbar
+#### Debug toolbar install steps :
 
 With [Magerun tool](https://github.com/netz98/n98-magreporerun) installed on your server :
 
@@ -49,16 +41,20 @@ With [Magerun tool](https://github.com/netz98/n98-magreporerun) installed on you
 * to enable report storage  in the the `sheep_debug_report_info` database table, enable it with a GET parameter `?dbdebug=1` 
 (ie : `/index.php?dbdebug=1`. It will keep being activated until the session is gone or a `?dbdebug=0` parameter in GET
 
-#### Firephp lib
+#### Firephp install steps :
 
-* Use Firefox and plugins Firebug + FirePHP
+* Inclusion of firePHP for DeveloperMode : add in the end of your `/index.php`, juste before the `Mage::run(` instruction :
 
-* use function fb() like a var_dump() and see result in the Firebug Console
+	if (Mage::getIsDeveloperMode()) {
+		include_once __DIR__ .'/dev/firephp/firephp-core/lib/FirePHPCore/fb.php';
+	} elseif (!function_exists('fb')) {
+		function fb() {return false;};
+	}
 
 
-## Quick disable guide
+* Use/Install Mozilla Firefox with plugins : Firebug and FirePHP
 
-Delete / comment content in `/app/etc/modules/Sheep_Debug.xml`
+* Now you can use the `fb()` function like a `var_dump()` and see result in the Firebug Console
 
 
 # Original Magneto-debug README :
