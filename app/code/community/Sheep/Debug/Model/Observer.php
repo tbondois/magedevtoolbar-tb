@@ -164,7 +164,7 @@ class Sheep_Debug_Model_Observer
         if (isset($_GET['dbdebug'])){
             if ($_GET['dbdebug'] == 1) {
                 $_SESSION['dbdebug'] = time();
-            } else {
+            } elseif (isset($_SESSION['dbdebug'])) {
                 unset($_SESSION['dbdebug']);
             }
         }
