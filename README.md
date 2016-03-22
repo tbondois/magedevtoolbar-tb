@@ -11,7 +11,7 @@
 
 * Insert in database table `sheep_debug_report_info` only if ?dbdebug=1 (see more information below)
 
-* the dev toolbar now don't display a useless header
+* The dev toolbar now don't display a useless header
 
 * Look for `@fixes` to see all my changes
 
@@ -19,9 +19,19 @@
 ## Quick install guide :
 
 
-* [Download zip](https://github.com/tbondois/magento1devkit/archive/master.zip) from [my GitHub project](https://github.com/tbondois/magento1devkit) and extract copy files/folders in your project root
+* [Download zip](https://github.com/tbondois/magento1devkit/archive/master.zip) from [my GitHub project](https://github.com/tbondois/magento1devkit) 
 
-* Suggestion : enrich your .gitignore by typing theses commands form your project root path. It will git-ignore FirePHP and the debug toolbar.
+* Extract and copy inner files/folders in your project root (overwrite if asked)
+
+* Inclusion of firePHP for DeveloperMode : add in the end of your `/index.php`, juste before the `Mage::run(` instruction :
+
+	if (Mage::getIsDeveloperMode()) {
+		include_once __DIR__ .'/dev/firephp/firephp-core/lib/FirePHPCore/fb.php';
+	} elseif (!function_exists('fb')) {
+		function fb() {return false;};
+	}
+
+* If you don't want/need to version these debug modules ? Enrich your .gitignore by typing theses commands form your project root path. It will git-ignore FirePHP and the debug toolbar.
 
 `php -r "readfile('https://raw.githubusercontent.com/tbondois/gitignore/master/php.gitignore');">>.gitignore`
 
@@ -43,16 +53,7 @@ With [Magerun tool](https://github.com/netz98/n98-magreporerun) installed on you
 
 * Use Firefox and plugins Firebug + FirePHP
 
-* Inclusion of library for DeveloperMode
-
-Add in the end of your `/index.php`, juste before the `Mage::run(` instruction :
-
-
-	if (Mage::getIsDeveloperMode()) {
-		include_once __DIR__ .'/dev/firephp/firephp-core/lib/FirePHPCore/fb.php';
-	} elseif (!function_exists('fb')) {
-		function fb() {return false;};
-	}
+* use function fb() like a var_dump() and see result in the Firebug Console
 
 
 ## Quick disable guide
@@ -60,7 +61,7 @@ Add in the end of your `/index.php`, juste before the `Mage::run(` instruction :
 Delete / comment content in `/app/etc/modules/Sheep_Debug.xml`
 
 
-# Original Magneto/debug README :
+# Original Magneto-debug README :
 
 
 [![Build Status](https://travis-ci.org/madalinoprea/magneto-debug.svg?branch=master)](https://travis-ci.org/madalinoprea/magneto-debug) [![Coveralls](https://coveralls.io/repos/github/madalinoprea/magneto-debug/badge.svg?branch=master)](https://coveralls.io/github/madalinoprea/magneto-debug)
