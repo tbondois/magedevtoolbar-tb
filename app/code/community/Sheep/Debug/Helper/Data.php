@@ -440,14 +440,19 @@ class Sheep_Debug_Helper_Data extends Mage_Core_Helper_Data
     {
         //@fixes no db insert by default because response can be too big
         //unless ?dbdebug=1 in url (will be keep activated in session ; ?dbdebug=0 to disable
-        if (isset($_GET['dbdebug'])){
-            if ($_GET['dbdebug'] == 1) {
-                $_COOKIE['dbdebug'] = time();
-            } elseif (isset($_SESSION['dbdebug'])) {
-                unset($_SESSION['dbdebug']);
+        if ((bool)Mage::getStoreConfig(self::DEBUG_OPTION_PERSIST_PATH)) {
+            if (isset($_GET['dbdebug'])){
+                if ((int)$_GET['dbdebug'] >= 1) {
+                    $_COOKIE['dbdebug'] = time();
+                } elseif (isset($_SESSION['dbdebug'])) {
+                    unset($_SESSION['dbdebug']);
+                }
             }
+        } elseif (isset($_SESSION['dbdebug'])) {
+            unset($_SESSION['dbdebug']);
         }
-        if (isset($_SESSION['dbdebug']) && (bool)Mage::getStoreConfig(self::DEBUG_OPTION_PERSIST_PATH)) {
+
+        if (isset($_SESSION['dbdebug'])) {
             return true;
         } else {
             return false;
