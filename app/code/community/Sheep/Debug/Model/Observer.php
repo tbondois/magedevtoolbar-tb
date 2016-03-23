@@ -160,17 +160,7 @@ class Sheep_Debug_Model_Observer
             return;
         }
 
-        //@fixes no db insert automatically because response can be too big
-        if (isset($_GET['dbdebug'])){
-            if ($_GET['dbdebug'] == 1) {
-                $_SESSION['dbdebug'] = time();
-            } elseif (isset($_SESSION['dbdebug'])) {
-                unset($_SESSION['dbdebug']);
-            }
-        }
-        if (isset($_SESSION['dbdebug'])) {
-            $this->getRequestInfo()->save();
-        }
+        $this->getRequestInfo()->save();
     }
 
     /**

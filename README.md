@@ -3,13 +3,13 @@
 
 ## Quick Changes :
 
-* The magento debug toolbar is a fork of [madalinoprea/magneto-debug](https://github.com/madalinoprea/magneto-debug) 
+* The magento debug toolbar is a fork of [madalinoprea/magneto-debug](https://github.com/madalinoprea/magneto-debug)
 
 * The FirePHP lib is a fork of [FirePHPCore](https://github.com/firephp/firephp-core) to dump PHP via fb() method and see them in the Firebug console
 
 * no need of installation via modman. Just copy/paste files to your magento root path
 
-* Insert in database table `sheep_debug_report_info` only if ?dbdebug=1 (see more information below)
+* Insert in database table `sheep_debug_report_info` only if ?dbdebug=1 (see more information below). It will have some side effects, in the reports of /sheep_debug/index for example
 
 * The dev toolbar now don't display a useless header
 
@@ -18,7 +18,7 @@
 
 ## Quick install guide :
 
-* [Download zip](https://github.com/tbondois/magento1devkit/archive/master.zip) from [my GitHub project](https://github.com/tbondois/magento1devkit) 
+* [Download zip](https://github.com/tbondois/magento1devkit/archive/master.zip) from [my GitHub project](https://github.com/tbondois/magento1devkit)
 
 * Extract and copy inner files/folders in your project root (overwrite if asked)
 
@@ -37,7 +37,7 @@ With [Magerun tool](https://github.com/netz98/n98-magreporerun) installed on you
 
 * `magerun sys:setup:run` to create the `sheep_debug_report_info` database table
 
-* to enable report storage  in the the `sheep_debug_report_info` database table, enable it with a GET parameter `?dbdebug=1` 
+* to enable report storage  in the the `sheep_debug_report_info` database table, enable it with a GET parameter `?dbdebug=1`
 (ie : `/index.php?dbdebug=1`. It will keep being activated until the session is gone or a `?dbdebug=0` parameter in GET
 
 #### Firephp specific install steps :
@@ -74,14 +74,14 @@ This repository represents an extension for Magento 1.x that offers a developer 
 - **Database**: lists all models and collections loaded during a request; when SQL profiler is enabled, lists all SQL queries executed and offers the ability to see their result or describe their execution plan
 - **E-mails**: lists sent e-mails with preview
 - **Layout**: outputs rendering tree, lists layout handlers loaded during current request and adds ability to see updated added by layout files to specific handle; offers information about instantiated and rendered blocks
-- **Configuration**: lists available Magento modules with their status and their version; 
+- **Configuration**: lists available Magento modules with their status and their version;
  also offers the ability to enable/disable them
 - **Toolbar Tools**: contains quick links to flush cache, enable template hints, enable SQL profiler, enable Varien Profiler, enable Magento Enterprise full page cache debug
 
 Don't forget to check out [screenshots gallery](docs/images.md)
 
 
-# Installation 
+# Installation
 
 ## Using Modman
 
@@ -96,7 +96,7 @@ cd [magento root folder]
 modman init
 modman clone https://github.com/madalinoprea/magneto-debug.git
 ```
-- Flush Magento's cache 
+- Flush Magento's cache
 
 ### How to update
 I'm pretty lazy and I don't like to create Magento Connect packages. With modman you can effortlessly grab latest changes from github.
@@ -119,7 +119,7 @@ composer require madalinoprea/magneto-debug
 
 # Change Log
 
-All released versions can be found on [releases' page](https://github.com/madalinoprea/magneto-debug/releases). 
+All released versions can be found on [releases' page](https://github.com/madalinoprea/magneto-debug/releases).
 
 - Latest version: [**1.6.2**](https://github.com/madalinoprea/magneto-debug/releases/latest)
    - Fixes e-mail capture for Magento CE 1.7 and Magento EE 1.12 #75
@@ -143,7 +143,7 @@ Hot fix versions are released as soon as possible, outside of our weekly release
 
 [![Aggregated Build Status](https://travis-ci.org/madalinoprea/magneto-debug.svg)](https://travis-ci.org/madalinoprea/magneto-debug)
 
-Extension is (hopefully) successfully unit tested against PHP 5.4, PHP 5.5 and Magento CE 1.9, Magento CE 1.8, Magento CE 1.7 and 
+Extension is (hopefully) successfully unit tested against PHP 5.4, PHP 5.5 and Magento CE 1.9, Magento CE 1.8, Magento CE 1.7 and
 their related Magento Enterprise versions.
 
 If you would like to support it on another version let us know.
@@ -152,12 +152,12 @@ If you would like to support it on another version let us know.
 # Common Issues
 
 - 'Mage Registry key already exists' exception is raised after installation
-    - `Mage registry key "_singleton/debug/observer" already exists` is reported when cache regeneration was corrupted. 
+    - `Mage registry key "_singleton/debug/observer" already exists` is reported when cache regeneration was corrupted.
     Please try to flush Magento cache.
 
 - Doesn'work. I see these logs on `var/log/system.log`: `Not valid template file:adminhtml/default/default/template/sheep_debug/toolbar.phtml`
-    - If you installed the module using modman you've missed an important step. Search this page after 'Allow symlinks for the templates directory' and complete that step.  	
-  
+    - If you installed the module using modman you've missed an important step. Search this page after 'Allow symlinks for the templates directory' and complete that step.
+
 - I can't see toolbar.
     - Toolbar is displayed in these conditions:
         - module is installed and enabled

@@ -438,7 +438,21 @@ class Sheep_Debug_Helper_Data extends Mage_Core_Helper_Data
      */
     public function canPersist()
     {
-        return (bool)Mage::getStoreConfig(self::DEBUG_OPTION_PERSIST_PATH);
+        //@fixes no db insert by default because response can be too big
+        //unless ?dbdebug=1 in url (will be keep activated in session ; ?dbdebug=0 to disable
+        if (isset($_GET['dbdebug'])){
+            if ($_GET['dbdebug'] == 1) {
+                $_COOKIE['dbdebug'] = time();
+            } elseif (isset($_SESSION['dbdebug'])) {
+                unset($_SESSION['dbdebug']);
+            }
+        }
+        if (isset($_SESSION['dbdebug'])) {
+            return (bool)Mage::getStoreConfig(self::DEBUG_OPTION_PERSIST_PATH);
+        } else {
+            return false;
+        }
+
     }
 
 
