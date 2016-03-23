@@ -80,5 +80,16 @@
                 <?php endif; ?>
             </span>
         </div>
+
+        <div class="sf-toolbar-info-piece">
+            <b><?php echo $this->__('Save Reports in Db'); ?></b>
+            <span>
+                <?php if (isset($_SESSION['dbdebug'])): ?>
+                    <a href="<?php echo '/?dbdebug=0'; ?>"><?php echo $this->__('Disable'); ?></a>
+                <?php else: ?>
+                    <a href="<?php echo '/?dbdebug=1'; ?>"><?php echo $this->__('Enable'); ?></a>
+                <?php endif; ?>
+            </span>
+        </div>
     </div>
 </div>

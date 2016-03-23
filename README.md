@@ -9,7 +9,7 @@
 
 * no need of installation via modman. Just copy/paste files to your magento root path
 
-* Insert in database table `sheep_debug_report_info` only if ?dbdebug=1 (see more information below). It will have some side effects, in the reports of /sheep_debug/index for example
+* Insert in database table `sheep_debug_report_info` only if ?dbdebug=1 (see more information below). It will have some side effects, in the reports of `/sheep_debug/index` for example
 
 * The dev toolbar now don't display a useless header
 

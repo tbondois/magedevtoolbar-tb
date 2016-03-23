@@ -447,12 +447,12 @@ class Sheep_Debug_Helper_Data extends Mage_Core_Helper_Data
                 unset($_SESSION['dbdebug']);
             }
         }
-        if (isset($_SESSION['dbdebug'])) {
-            return (bool)Mage::getStoreConfig(self::DEBUG_OPTION_PERSIST_PATH);
+        if (isset($_SESSION['dbdebug']) && (bool)Mage::getStoreConfig(self::DEBUG_OPTION_PERSIST_PATH)) {
+            return true;
         } else {
             return false;
         }
-
+        //@fixes(bool)Mage::getStoreConfig(self::DEBUG_OPTION_PERSIST_PATH);
     }
 
 
