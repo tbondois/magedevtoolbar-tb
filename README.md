@@ -13,12 +13,19 @@
 
 * The dev toolbar now don't display a header
 
+* Management of  current store URL in the toolbar links
+
 * Look for `@fixes` to see all my changes
 
 
 ## Quick install guide :
 
-* [Download zip](https://github.com/tbondois/magento1devkit/archive/master.zip) from [my GitHub project](https://github.com/tbondois/magento1devkit)
+* Method 1 :[Download zip](https://github.com/tbondois/magento1devkit/archive/master.zip) from [my GitHub project](https://github.com/tbondois/magento1devkit)
+
+* Method 2 : OR add a git repository to your project doing this (will be easier to update) :
+
+    git remote add debug https://github.com/tbondois/magento1devkit.git
+    git pull debug master
 
 * Extract and copy inner files/folders in your project root (overwrite if asked)
 
@@ -47,10 +54,9 @@ With [Magerun tool](https://github.com/netz98/n98-magreporerun) installed on you
 		function fb() {return false;};
 	}
 
+After that, you can use the `fb()` function like a `var_dump()` and see result in the Firebug Console. But if Magento DevelopperMode is disabled, it will do nothing.
 
-* Use/Install Mozilla Firefox with plugins : Firebug and FirePHP
-
-* Now you can use the `fb()` function like a `var_dump()` and see result in the Firebug Console
+* Use/Install Mozilla Firefox with plugins : Firebug and FirePHP.
 
 
 # Original Magneto-debug README :
