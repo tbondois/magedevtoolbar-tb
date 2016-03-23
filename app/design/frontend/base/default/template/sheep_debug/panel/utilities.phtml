@@ -82,7 +82,7 @@
         </div>
 
         <div class="sf-toolbar-info-piece">
-            <b><?php echo $this->__('Save Reports in Db'); ?></b>
+            <b><?php echo $this->__('Save Reports in Db'); //@fixes ?></b>
             <span>
                 <?php if (isset($_SESSION['dbdebug'])): ?>
                     <a href="<?php echo '/?dbdebug=0'; ?>"><?php echo $this->__('Disable'); ?></a>

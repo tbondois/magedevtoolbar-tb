@@ -7,11 +7,11 @@
 
 * The FirePHP lib is a fork of [FirePHPCore](https://github.com/firephp/firephp-core) to dump PHP via fb() method and see them in the Firebug console
 
-* no need of installation via modman. Just copy/paste files to your magento root path
+* No need of installation via modman, Magento Connect or composer. Just copy/paste files to your magento root path
 
-* Insert in database table `sheep_debug_report_info` only if ?dbdebug=1 (see more information below). It will have some side effects, in the reports of `/sheep_debug/index` for example
+* Insert in database table `sheep_debug_report_info` now only on GET parameter ?dbdebug=1, then the configuration is stored in session. You can also control in the Tools menu of the toolbar > Save Report in Db : Enable/Disable). It will have some side effects, like not displaying last/top request in the extended Panel of the toobar
 
-* The dev toolbar now don't display a useless header
+* The dev toolbar now don't display a header
 
 * Look for `@fixes` to see all my changes
 
@@ -36,9 +36,6 @@ With [Magerun tool](https://github.com/netz98/n98-magreporerun) installed on you
 * `magerun cache:clean`
 
 * `magerun sys:setup:run` to create the `sheep_debug_report_info` database table
-
-* to enable report storage  in the the `sheep_debug_report_info` database table, enable it with a GET parameter `?dbdebug=1`
-(ie : `/index.php?dbdebug=1`. It will keep being activated until the session is gone or a `?dbdebug=0` parameter in GET
 
 #### Firephp specific install steps :
 

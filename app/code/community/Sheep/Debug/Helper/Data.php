@@ -443,7 +443,7 @@ class Sheep_Debug_Helper_Data extends Mage_Core_Helper_Data
         if ((bool)Mage::getStoreConfig(self::DEBUG_OPTION_PERSIST_PATH)) {
             if (isset($_GET['dbdebug'])){
                 if ((int)$_GET['dbdebug'] >= 1) {
-                    $_COOKIE['dbdebug'] = time();
+                    $_SESSION['dbdebug'] = time();
                 } elseif (isset($_SESSION['dbdebug'])) {
                     unset($_SESSION['dbdebug']);
                 }
