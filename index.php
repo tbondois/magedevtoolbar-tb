@@ -54,7 +54,7 @@ if (isset($_SERVER['MAGE_IS_DEVELOPER_MODE'])) {
 ini_set('display_errors', 1);
 
 if (Mage::getIsDeveloperMode()) {
-    @include_once __DIR__ .'/dev/firephp/firephp-core/lib/FirePHPCore/fb.php';
+    @include_once __DIR__ .'/dev/firebug/firephp-core/lib/FirePHPCore/fb.php';
 } elseif (!function_exists('fb')) {
     function fb() {return false;};
 }
