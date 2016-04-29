@@ -1,66 +1,59 @@
+# Quick install guide :
 
-# Magento 1.x dev toolbar + FirePHP
+* copy files/folder from your project root
 
-## Quick Changes :
+* Check that your .gitignore contains these lines (or `git pull` if not) :
+
+## magneto-debug :
+/app/code/community/Sheep/Debug/
+/app/design/adminhtml/default/default/layout/sheep_debug.xml
+/app/design/adminhtml/default/default/template/sheep_debug/
+/app/design/frontend/base/default/layout/sheep_debug.xml
+/app/design/frontend/base/default/template/sheep_debug/
+/app/etc/modules/Sheep_Debug.xml
+/skin/adminhtml/default/default/sheep_debug/
+/skin/frontend/base/default/sheep_debug/
+/Debug_README.md
+
+* `magerun cache:clean`
+
+* `magerun sys:setup:run`  to create the `sheep_debug_report_info` database table
+                         `
+* to disable report storage  in the the `sheep_debug_report_info` database table, enable it with a GET parameter `?nodbdebug=1`
+(ie : `/index.php?nodbdebug=1`. It will keep being disabled until the session is gone or a `?nodbdebug=0` parameter in GET
+
+
+# Quick disabling
+
+Pour désactiver temporairement la barre en cas de probleme (ca pourrait éviter étant donné que le modèle des produits/whishlist n'est plus du tout standard): commenter ou supprimer tout le contenu xml dans app/etc/modules/sheep_debug.xml et re-cleaner les cache : la barre sera plus chargée
+
+# Fixes
 
 * The magento debug toolbar is a fork of [madalinoprea/magneto-debug](https://github.com/madalinoprea/magneto-debug)
 
-* The FirePHP lib is a fork of [FirePHPCore](https://github.com/firephp/firephp-core) to dump PHP via fb() method and see them in the Firebug console
+* no need of installation via modman. Just copy/paste files to your magento root path
 
-* No need of installation via modman, Magento Connect or composer. Just copy/paste files to your magento root path
+* Insert in database table `sheep_debug_report_info` except on GET parameter ?nodbdebug=1, then the configuration is stored in session. You can also control in the Tools menu of the toolbar > Save Report in Db : Enable/Disable). It will have some side effects, like not displaying last/top request in the extended Panel of the toobar
 
-* Insert in database table `sheep_debug_report_info` now only on GET parameter ?dbdebug=1, then the configuration is stored in session. You can also control in the Tools menu of the toolbar > Save Report in Db : Enable/Disable). It will have some side effects, like not displaying last/top request in the extended Panel of the toobar
-
-* The dev toolbar now don't display a header
+* The dev toolbar now don't display a useless header
 
 * Management of  current store URL in the toolbar links
 
 * Look for `@fixes` to see all my changes
 
-
-## Quick install guide :
-
-* Method 1 :[Download zip](https://github.com/tbondois/magento1devkit/archive/master.zip) from [my GitHub project](https://github.com/tbondois/magento1devkit)
-
-* Method 2 : OR add a git repository to your project doing this (will be easier to update) :
-
-    git remote add debug https://github.com/tbondois/magento1devkit.git
-    git pull debug master
-
-* Extract and copy inner files/folders in your project root (overwrite if asked)
-
-* If you don't want/need to version these debug modules ? Enrich your .gitignore by typing theses commands form your project root path. It will git-ignore FirePHP and the debug toolbar.
-
-`php -r "readfile('https://raw.githubusercontent.com/tbondois/gitignore/master/php.gitignore');">>.gitignore`
-
-`php -r "readfile('https://raw.githubusercontent.com/tbondois/gitignore/master/magento1.gitignore');">>.gitignore`
+* Le block wishlist item n'est plus profilé, parce que ca faisait crasher le magento. le modele est mal surchargé et utilisé pour les dossiers de croisiere. Il y a une explication pour rajouter d'autres exceptions en cas de crash sur d'autres pages.
 
 
-#### Debug toolbar specific install steps :
+# Hints
 
-With [Magerun tool](https://github.com/netz98/n98-magreporerun) installed on your server :
+* Vous devrez voir une barre sur donf noir en bas des pages. L'onglet le plus intéressant est celui permettant de voir le des blocks et layout. Il y a moyen d'activer du profiling en db.
 
-* `magerun cache:clean`
-
-* `magerun sys:setup:run` to create the `sheep_debug_report_info` database table
-
-#### Firephp specific install steps :
-
-* Inclusion of firePHP for DeveloperMode : add in the end of your `/index.php`, juste before the `Mage::run(` instruction :
-
-	if (Mage::getIsDeveloperMode()) {
-		include_once __DIR__ .'/dev/firephp/firephp-core/lib/FirePHPCore/fb.php';
-	} elseif (!function_exists('fb')) {
-		function fb() {return false;};
-	}
-
-After that, you can use the `fb()` function like a `var_dump()` and see result in the Firebug Console. But if Magento DevelopperMode is disabled, it will do nothing.
-
-* Use/Install Mozilla Firefox with plugins : Firebug and FirePHP.
+* *Template Hints : Enable* dans le menu a droite est bien pratique aussi pour voir le découpage des phtml et des blocks
 
 
-# Original Magneto-debug README :
 
+
+# Original madalinoprea/magneto-debug README :
 
 [![Build Status](https://travis-ci.org/madalinoprea/magneto-debug.svg?branch=master)](https://travis-ci.org/madalinoprea/magneto-debug) [![Coveralls](https://coveralls.io/repos/github/madalinoprea/magneto-debug/badge.svg?branch=master)](https://coveralls.io/github/madalinoprea/magneto-debug)
 

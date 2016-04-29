@@ -82,12 +82,12 @@
         </div>
 
         <div class="sf-toolbar-info-piece">
-            <b><?php echo $this->__('Save Reports in Db'); //@fixes ?></b>
+            <b><?php echo $this->__('sheep_debug_request_info in DB'); //@fixes ?></b>
             <span>
-                <?php if (isset($_SESSION['dbdebug'])): ?>
-                    <a target="sheep-debug" href="<?php echo '/?dbdebug=0'; ?>"><?php echo $this->__('Disable'); ?></a>
+                <?php if (isset($_SESSION['nodbdebug'])): ?>
+                    <a target="sheep-debug" href="<?php echo '/?nodbdebug=0'; ?>"><?php echo $this->__('Enable'); ?></a>
                 <?php else: ?>
-                    <a target="sheep-debug" href="<?php echo '/?dbdebug=1'; ?>"><?php echo $this->__('Enable'); ?></a>
+                    <a target="sheep-debug" href="<?php echo '/?nodbdebug=1'; ?>"><?php echo $this->__('Disable'); ?></a>
                 <?php endif; ?>
             </span>
         </div>

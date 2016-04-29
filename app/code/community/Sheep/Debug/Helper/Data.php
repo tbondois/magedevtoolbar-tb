@@ -438,26 +438,25 @@ class Sheep_Debug_Helper_Data extends Mage_Core_Helper_Data
      */
     public function canPersist()
     {
-        //@fixes no db insert by default because response can be too big
-        //unless ?dbdebug=1 in url (will be keep activated in session ; ?dbdebug=0 to disable
+        //@fixes no db insert in ca case of response too big if ?nodbdebug=1 in url (will be keep disabled in session ; ?dbdebug=0 to disable
         if ((bool)Mage::getStoreConfig(self::DEBUG_OPTION_PERSIST_PATH)) {
-            if (isset($_GET['dbdebug'])){
-                if ((int)$_GET['dbdebug'] >= 1) {
-                    $_SESSION['dbdebug'] = time();
-                } elseif (isset($_SESSION['dbdebug'])) {
-                    unset($_SESSION['dbdebug']);
+            if (isset($_GET['nodbdebug'])){
+                if ((int)$_GET['nodbdebug'] >= 1) {
+                    $_SESSION['nodbdebug'] = time();
+                } elseif(isset($_SESSION['nodbdebug'])) {
+                    unset($_SESSION['nodbdebug']);
                 }
             }
-        } elseif (isset($_SESSION['dbdebug'])) {
-            unset($_SESSION['dbdebug']);
+        } elseif (isset($_SESSION['nodbdebug'])) {
+            unset($_SESSION['nodbdebug']);
         }
 
-        if (isset($_SESSION['dbdebug'])) {
-            return true;
-        } else {
+        if (isset($_SESSION['nodbdebug'])) {
             return false;
+        } else {
+            return true;
         }
-        //@fixes(bool)Mage::getStoreConfig(self::DEBUG_OPTION_PERSIST_PATH);
+        //@fixes return (bool)Mage::getStoreConfig(self::DEBUG_OPTION_PERSIST_PATH);
     }
 
 

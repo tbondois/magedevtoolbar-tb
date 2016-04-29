@@ -19,10 +19,13 @@ class Sheep_Debug_Helper_Url extends Mage_Core_Helper_Data
      */
     public function getRouteStoreId()
     {
-        //@fixes : try to get current store
+        //@fixes : try to get current store instead of return Mage::app()->getDefaultStoreView()->getId();
         try {
-            $storeId = Mage::app()->getSafeStore()->getId();
+            $storeId = Mage::app()->getStore()->getId();
         } catch (Exception $e) {
+            $storeId = null;
+        }
+        if (!$storeId) {
             $storeId = Mage::app()->getDefaultStoreView()->getId();
         }
         return $storeId;
